@@ -1,10 +1,13 @@
 from flask import Flask
 from routes import register_routes
 
+from services.telegram_service import start_scheduler
+
 
 def create_app():
     app = Flask(__name__)
     register_routes(app)
+    start_scheduler()
     return app
 
 if __name__ == "__main__":
