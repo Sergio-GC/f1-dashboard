@@ -66,15 +66,7 @@ function renderNextRace(race, lapRecord, weather) {
   }
 
   var nextSession = findNextImportantSession(race.sessions);
-  var countdownHtml = '';
-  if (nextSession) {
-    countdownHtml =
-      '<div class="bg-dark border border-danger border-opacity-50 rounded p-3 text-center mb-3">' +
-      '<div class="text-uppercase small text-secondary mb-1">⏱ Countdown to ' + nextSession.label + '</div>' +
-      '<div class="countdown-time" id="countdown-time">--</div>' +
-      '<div class="small text-secondary mt-1">' + nextSession.display + '</div></div>';
-  }
-
+  
   var infoCards = '';
   if (lapRecord) {
     infoCards +=
@@ -93,10 +85,25 @@ function renderNextRace(race, lapRecord, weather) {
   }
   var infoGrid = infoCards ? '<div class="row g-2 mt-2">' + infoCards + '</div>' : '';
 
+  // Build a compact countdown instead of the big block
+  var countdownInline = '';
+  if (nextSession) {
+    countdownInline =
+      '<div class="text-end">' +
+      '<div class="text-uppercase text-secondary" style="font-size:0.6rem">' + nextSession.label + ' in</div>' +
+      '<div class="countdown-time" id="countdown-time" style="font-size:1.4rem">--</div>' +
+      '</div>';
+  }
+
   return cardWrap('Round ' + race.round + ' — Next Race',
+    '<div class="d-flex justify-content-between align-items-start mb-3">' +
+    '<div>' +
     '<h5 class="fw-bold mb-1">' + race.name + sprintBadge + '</h5>' +
-    '<p class="text-secondary small mb-3">📍 ' + race.circuit_name + ', ' + race.locality + ', ' + race.country + '</p>' +
-    countdownHtml + sessions + infoGrid
+    '<span class="text-secondary small">📍 ' + race.circuit_name + ', ' + race.locality + ', ' + race.country + '</span>' +
+    '</div>' +
+    countdownInline +
+    '</div>' +
+    sessions + infoGrid
   );
 }
 

@@ -171,8 +171,8 @@ def get_last_race_results(last_race):
     }
 
     # Cache and return
-    _cache[_cache_label] = results
-    return results
+    _cache[_cache_label] = res
+    return res
 
 
 def get_laptime_record(circuit_id):
