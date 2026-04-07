@@ -1,66 +1,35 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #0f0f0f;
-    color: #f0f0f0;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 14px;
-  }
-  header {
-    background: #1a1a1a;
-    border-bottom: 3px solid #e10600;
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  header h1 {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #e10600;
-  }
-  header h1 span { color: #f0f0f0; }
-  #status { font-size: 12px; color: #888; }
+.countdown-time {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #e10600;
+  font-variant-numeric: tabular-nums;
+}
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 16px;
-    padding: 20px;
-    max-width: 1600px;
-    margin: 0 auto;
-  }
-  .card {
-    background: #1a1a1a;
-    border: 1px solid #2e2e2e;
-    border-radius: 10px;
-    padding: 20px;
-    position: relative;
-  }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: #e10600;
-    border-radius: 10px 10px 0 0;
-  }
-  .card h2 {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #888;
-    margin-bottom: 14px;
-  }
-  .card.wide { grid-column: span 2; }
+.session-row-race .session-label,
+.session-row-race .session-time {
+  color: #e10600 !important;
+  font-weight: 700;
+}
 
-  .race-name { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
-  .race-detail { font-size: 13px; color: #888; margin-bottom: 4px; }
+.sprint-badge {
+  font-size: 0.65rem;
+  vertical-align: middle;
+}
 
-  .loading { text-align: center; color: #888; padding: 40px; }
-  .error { color: #e10600; }
+.fl-icon {
+  color: #a855f7;
+  font-weight: 800;
+  font-size: 0.7rem;
+}
 
-  @media (max-width: 700px) {
-    .card.wide { grid-column: span 1; }
-  }
+.delta-gained { color: #00d2be; }
+.delta-lost { color: #e10600; }
+.delta-neutral { color: #888; }
+
+.news-item {
+  border-left: 3px solid #9b0400;
+  transition: border-color 0.15s;
+}
+.news-item:hover {
+  border-left-color: #e10600;
+}
