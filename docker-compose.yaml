@@ -1,0 +1,16 @@
+services:
+  f1-dashboard:
+    networks:
+      - main
+    build: .
+    container_name: f1dashboard
+    restart: unless-stopped
+    ports:
+      - "3080:3080"
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+
+networks:
+  main:
+    external: true
