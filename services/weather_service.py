@@ -57,7 +57,7 @@ def get_race_weather(lat, long, race_date):
         )
 
         response.raise_for_status()
-        data = response.json
+        data = response.json()
 
     except Exception as e :
         print(f"Weather API request error: {e}")
